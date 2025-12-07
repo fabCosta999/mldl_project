@@ -4,7 +4,7 @@ import urllib.request
 import zipfile
 
 url = "http://cs231n.stanford.edu/tiny-imagenet-200.zip"
-zip_path = "tiny-imagenet-200.zip"
+zip_path = "dataset/tiny-imagenet-200.zip"
 
 print("Downloading Tiny ImageNet...")
 urllib.request.urlretrieve(url, zip_path)
