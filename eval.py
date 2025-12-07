@@ -1,4 +1,8 @@
 import torch
+from torch import nn
+from customnet import CustomNet
+from utils.transform import transform
+from torchvision.datasets import ImageFolder
 
 
 # Validation loop
@@ -25,3 +29,13 @@ def validate(model, val_loader, criterion):
 
     print(f'Validation Loss: {val_loss:.6f} Acc: {val_accuracy:.2f}%')
     return val_accuracy
+
+tiny_imagenet_dataset_val = ImageFolder(root='tiny-imagenet/tiny-imagenet-200/val', transform=transform)
+val_loader = torch.utils.data.DataLoader(tiny_imagenet_dataset_val, batch_size=32, shuffle=False)
+model = CustomNet()
+model.load_state_dict(torch.load("models/customnet_final.pth"))
+model = model.cuda()
+model.eval()
+criterion = nn.CrossEntropyLoss()
+val_accuracy = validate(model, val_loader, criterion)
+print("model accuracy:", val_accuracy)
