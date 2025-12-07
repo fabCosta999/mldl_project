@@ -39,7 +39,7 @@ def validate(model, val_loader, criterion):
 
 # dataset
 tiny_imagenet_dataset_val = ImageFolder(
-    root='tiny-imagenet/tiny-imagenet-200/val',
+    root='dataset/tiny-imagenet/tiny-imagenet-200/val',
     transform=transform
 )
 
