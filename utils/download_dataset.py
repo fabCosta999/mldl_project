@@ -10,7 +10,7 @@ print("Downloading Tiny ImageNet...")
 urllib.request.urlretrieve(url, zip_path)
 print("Download complete.")
 
-extract_dir = "tiny-imagenet"
+extract_dir = "dataset/tiny-imagenet"
 
 print("Extracting zip file...")
 with zipfile.ZipFile(zip_path, 'r') as zip_ref:
